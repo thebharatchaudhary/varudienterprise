@@ -211,6 +211,9 @@ function setLanguage(lang, showNotification = true) {
   if (typeof refreshAllAccordionLabels === "function") {
     refreshAllAccordionLabels();
   }
+  if (typeof refreshAllShowMoreButtons === "function") {
+    refreshAllShowMoreButtons();
+  }
 
   // Gentle notification if requested
   if (showNotification) {
@@ -1245,5 +1248,77 @@ window.collapseBlock = collapseBlock;
 window.setAllBlocksState = setAllBlocksState;
 window.handleBlockBarClick = handleBlockBarClick;
 window.refreshAllAccordionLabels = refreshAllAccordionLabels;
+
+// =========================================================================
+// PRODUCT CATALOG: SHOW MORE / LOAD MORE (First 3 products default)
+// =========================================================================
+function toggleShowMore(sectionKey) {
+  const extra = document.getElementById(`extra-${sectionKey}`);
+  const btn = document.getElementById(`btn-show-more-${sectionKey}`);
+  if (!extra || !btn) return;
+
+  const isExpanded = extra.classList.contains('is-expanded');
+  const countSpan = btn.querySelector('.btn-show-more-count');
+  const textSpan = btn.querySelector('.btn-show-more-text');
+  const currentLang = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.currentLanguage) ? APP_CONFIG.currentLanguage : 'gu';
+  const dict = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) ? TRANSLATIONS[currentLang] : null;
+
+  if (isExpanded) {
+    // Collapse back to first 3 products
+    extra.classList.remove('is-expanded');
+    extra.setAttribute('aria-hidden', 'true');
+    btn.classList.remove('is-expanded');
+    btn.setAttribute('aria-expanded', 'false');
+
+    if (textSpan) {
+      textSpan.setAttribute('data-i18n', 'btn_show_more');
+      textSpan.textContent = dict ? dict.btn_show_more : (currentLang === 'gu' ? 'વધુ પ્રોડક્ટ્સ જુઓ' : (currentLang === 'hi' ? 'और उत्पाद देखें' : 'Show More Products'));
+    }
+    if (countSpan) {
+      countSpan.style.display = 'inline';
+    }
+
+    // Scroll smoothly to top of the grid if the user scrolled down past it
+    const scrollTarget = document.getElementById(sectionKey === 'tarpaulin' ? 'all-sizes-guide' : 'agricultural-solutions');
+    if (scrollTarget) {
+      const rect = scrollTarget.getBoundingClientRect();
+      if (rect.top < 70) {
+        scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  } else {
+    // Expand remaining products smoothly
+    extra.classList.add('is-expanded');
+    extra.setAttribute('aria-hidden', 'false');
+    btn.classList.add('is-expanded');
+    btn.setAttribute('aria-expanded', 'true');
+
+    if (textSpan) {
+      textSpan.setAttribute('data-i18n', 'btn_show_less');
+      textSpan.textContent = dict ? dict.btn_show_less : (currentLang === 'gu' ? 'ઓછું જુઓ' : (currentLang === 'hi' ? 'कम देखें' : 'Show Less'));
+    }
+    if (countSpan) {
+      countSpan.style.display = 'none';
+    }
+  }
+}
+
+function refreshAllShowMoreButtons() {
+  const currentLang = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.currentLanguage) ? APP_CONFIG.currentLanguage : 'gu';
+  const dict = (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[currentLang]) ? TRANSLATIONS[currentLang] : null;
+  if (!dict) return;
+
+  document.querySelectorAll('.btn-show-more').forEach(btn => {
+    const isExpanded = btn.classList.contains('is-expanded');
+    const textSpan = btn.querySelector('.btn-show-more-text');
+    if (textSpan) {
+      textSpan.textContent = isExpanded ? dict.btn_show_less : dict.btn_show_more;
+      textSpan.setAttribute('data-i18n', isExpanded ? 'btn_show_less' : 'btn_show_more');
+    }
+  });
+}
+
+window.toggleShowMore = toggleShowMore;
+window.refreshAllShowMoreButtons = refreshAllShowMoreButtons;
 
 

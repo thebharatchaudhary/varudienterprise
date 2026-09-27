@@ -431,7 +431,9 @@ const TRANSLATIONS = {
     modal_city_lbl: 'Delivery City / District',
     modal_submit: 'Submit Quotation Request',
     modal_wa: 'Send Details on WhatsApp',
-    wa_sales_tooltip: 'WhatsApp Sales'
+    wa_sales_tooltip: 'WhatsApp Sales',
+    btn_show_more: 'Show More Products',
+    btn_show_less: 'Show Less'
   },
   gu: {
     // Top Bar
@@ -861,7 +863,9 @@ const TRANSLATIONS = {
     modal_city_lbl: 'ડિલિવરી સ્થળ / જિલ્લો',
     modal_submit: 'ભાવપત્રક માટે વિનંતી કરો',
     modal_wa: 'વોટ્સએપ પર વિગત મોકલો',
-    wa_sales_tooltip: 'વોટ્સએપ સેલ્સ'
+    wa_sales_tooltip: 'વોટ્સએપ સેલ્સ',
+    btn_show_more: 'વધુ પ્રોડક્ટ્સ જુઓ',
+    btn_show_less: 'ઓછું જુઓ'
   },
   hi: {
     // Top Bar
@@ -1291,6 +1295,8 @@ const TRANSLATIONS = {
     modal_city_lbl: 'डिलीवरी शहर / जिला',
     modal_submit: 'कोटेशन अनुरोध सबमिट करें',
     modal_wa: 'व्हाट्सएप पर विवरण भेजें',
-    wa_sales_tooltip: 'व्हाट्सएप सेल्स'
+    wa_sales_tooltip: 'व्हाट्सएप सेल्स',
+    btn_show_more: 'और उत्पाद देखें',
+    btn_show_less: 'कम देखें'
   }
 };

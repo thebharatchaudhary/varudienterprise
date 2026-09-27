@@ -625,6 +625,13 @@
                   </div>
                 </div>
 
+              </div><!-- end initial 3 tarpaulin cards grid -->
+
+              <!-- Collapsible Extra Tarpaulin Cards (Cards 4, 5, 6) -->
+              <div class="product-collapsible-extra" id="extra-tarpaulin" aria-hidden="true">
+                <div class="collapsible-extra-inner">
+                  <div class="all-sizes-cards-grid extra-grid">
+
                 <!-- 4. Canvas Tarpaulin -->
                 <div class="size-spec-card" data-card-idx="3">
                   <div class="size-spec-card-top">
@@ -801,6 +808,19 @@
                   </div>
                 </div>
 
+                  </div>
+                </div>
+              </div>
+
+              <!-- Show More / Less Action Button for Tarpaulin -->
+              <div class="show-more-action-wrap">
+                <button type="button" class="btn-show-more" id="btn-show-more-tarpaulin" aria-expanded="false" aria-controls="extra-tarpaulin" onclick="toggleShowMore('tarpaulin')">
+                  <span class="btn-show-more-text" data-i18n="btn_show_more">વધુ પ્રોડક્ટ્સ જુઓ</span>
+                  <span class="btn-show-more-count">(3)</span>
+                  <svg class="btn-show-more-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
               </div>
 
             </div>
@@ -910,16 +930,64 @@
                       <span data-i18n="b2_f4_label">Location (District / State):</span>
                     </label>
                     <select id="input-location" class="form-select" onchange="updatePondCalculation()">
-                      <option value="Rajkot / Saurashtra (Gujarat)" selected>Rajkot / Saurashtra (Gujarat)</option>
-                      <option value="Mehsana / North Gujarat">Mehsana / North Gujarat</option>
-                      <option value="Junagadh / Gir Somnath">Junagadh / Gir Somnath</option>
-                      <option value="Bhavnagar / Amreli">Bhavnagar / Amreli</option>
-                      <option value="Ahmedabad / Anand / Kheda">Ahmedabad / Anand / Kheda</option>
-                      <option value="Surat / South Gujarat">Surat / South Gujarat</option>
-                      <option value="Kutch / Desert District">Kutch / Desert District</option>
-                      <option value="Maharashtra (All Districts)">Maharashtra (All Districts)</option>
-                      <option value="Rajasthan / Madhya Pradesh">Rajasthan / Madhya Pradesh</option>
-                      <option value="Other State (Pan-India Dispatch)">Other State (Pan-India Doorstep Dispatch)</option>
+                      <optgroup label="📍 બનાસકાંઠા & ફેક્ટરી હબ (Banaskantha & Factory Hub)">
+                        <option value="વાવ - થરાદ / બનાસકાંઠા (Vav - Tharad - Factory Location)" selected>વાવ - થરાદ (Vav - Tharad / Factory Location)</option>
+                        <option value="બનાસકાંઠા - પાલનપુર / ડીસા (Banaskantha - Palanpur / Deesa)">બનાસકાંઠા - પાલનપુર / ડીસા (Banaskantha)</option>
+                      </optgroup>
+                      
+                      <optgroup label="📍 ઉત્તર ગુજરાત (North Gujarat)">
+                        <option value="પાટણ (Patan)">પાટણ (Patan)</option>
+                        <option value="મહેસાણા (Mehsana)">મહેસાણા (Mehsana)</option>
+                        <option value="સાબરકાંઠા - હિંમતનગર (Sabarkantha - Himatnagar)">સાબરકાંઠા - હિંમતનગર (Sabarkantha)</option>
+                        <option value="અરવલ્લી - મોડાસા (Aravalli - Modasa)">અરવલ્લી - મોડાસા (Aravalli)</option>
+                        <option value="ગાંધીનગર (Gandhinagar)">ગાંધીનગર (Gandhinagar)</option>
+                      </optgroup>
+
+                      <optgroup label="📍 સૌરાષ્ટ્ર (Saurashtra)">
+                        <option value="રાજકોટ (Rajkot)">રાજકોટ (Rajkot)</option>
+                        <option value="જામનગર (Jamnagar)">જામનગર (Jamnagar)</option>
+                        <option value="જૂનાગઢ (Junagadh)">જૂનાગઢ (Junagadh)</option>
+                        <option value="ભાવનગર (Bhavnagar)">ભાવનગર (Bhavnagar)</option>
+                        <option value="અમરેલી (Amreli)">અમરેલી (Amreli)</option>
+                        <option value="મોરબી (Morbi)">મોરબી (Morbi)</option>
+                        <option value="સુરેન્દ્રનગર (Surendranagar)">સુરેન્દ્રનગર (Surendranagar)</option>
+                        <option value="ગીર સોમનાથ (Gir Somnath)">ગીર સોમનાથ (Gir Somnath)</option>
+                        <option value="દેવભૂમિ દ્વારકા (Devbhumi Dwarka)">દેવભૂમિ દ્વારકા (Devbhumi Dwarka)</option>
+                        <option value="પોરબંદર (Porbandar)">પોરબંદર (Porbandar)</option>
+                        <option value="બોટાદ (Botad)">બોટાદ (Botad)</option>
+                      </optgroup>
+
+                      <optgroup label="📍 કચ્છ (Kutch)">
+                        <option value="કચ્છ - ભુજ / ગાંધીધામ (Kutch - Bhuj / Gandhidham)">કચ્છ - ભુજ / ગાંધીધામ (Kutch)</option>
+                      </optgroup>
+
+                      <optgroup label="📍 મધ્ય ગુજરાત (Central Gujarat)">
+                        <option value="અમદાવાદ (Ahmedabad)">અમદાવાદ (Ahmedabad)</option>
+                        <option value="વડોદરા (Vadodara)">વડોદરા (Vadodara)</option>
+                        <option value="આણંદ (Anand)">આણંદ (Anand)</option>
+                        <option value="ખેડા - નડિયાદ (Kheda - Nadiad)">ખેડા - નડિયાદ (Kheda)</option>
+                        <option value="પંચમહાલ - ગોધરા (Panchmahal - Godhra)">પંચમહાલ - ગોધરા (Panchmahal)</option>
+                        <option value="દાહોદ (Dahod)">દાહોદ (Dahod)</option>
+                        <option value="મહીસાગર - લુણાવાડા (Mahisagar - Lunawada)">મહીસાગર - લુણાવાડા (Mahisagar)</option>
+                        <option value="છોટા ઉદેપુર (Chhota Udaipur)">છોટા ઉદેપુર (Chhota Udaipur)</option>
+                      </optgroup>
+
+                      <optgroup label="📍 દક્ષિણ ગુજરાત (South Gujarat)">
+                        <option value="સુરત (Surat)">સુરત (Surat)</option>
+                        <option value="ભરૂચ (Bharuch)">ભરૂચ (Bharuch)</option>
+                        <option value="નવસારી (Navsari)">નવસારી (Navsari)</option>
+                        <option value="વલસાડ (Valsad)">વલસાડ (Valsad)</option>
+                        <option value="નર્મદા - રાજપીપળા (Narmada - Rajpipla)">નર્મદા - રાજપીપળા (Narmada)</option>
+                        <option value="તાપી - વ્યારા (Tapi - Vyara)">તાપી - વ્યારા (Tapi)</option>
+                        <option value="ડાંગ - આહવા (Dang - Ahwa)">ડાંગ - આહવા (Dang)</option>
+                      </optgroup>
+
+                      <optgroup label="🚚 અન્ય રાજ્યો (Other States - Pan-India Dispatch)">
+                        <option value="રાજસ્થાન (Rajasthan - Barmer / Jalore / Sanchore / All Districts)">રાજસ્થાન (Rajasthan)</option>
+                        <option value="મહારાષ્ટ્ર (Maharashtra - All Districts)">મહારાષ્ટ્ર (Maharashtra)</option>
+                        <option value="મધ્ય પ્રદેશ (Madhya Pradesh - All Districts)">મધ્ય પ્રદેશ (Madhya Pradesh)</option>
+                        <option value="અન્ય રાજ્ય (Other State - Pan-India Doorstep Dispatch)">અન્ય રાજ્ય (Other State - Doorstep Dispatch)</option>
+                      </optgroup>
                     </select>
                     <span class="field-caption" data-i18n="b2_f4_sub">Direct factory transport to farm gate with handling guidelines.</span>
                   </div>
@@ -1073,6 +1141,13 @@
                 </div>
               </div>
 
+            </div><!-- end initial 3 agri products grid -->
+
+            <!-- Collapsible Extra Agricultural Products (Items 4, 5, 6, 7) -->
+            <div class="product-collapsible-extra" id="extra-agri" aria-hidden="true">
+              <div class="collapsible-extra-inner">
+                <div class="agri-solutions-grid extra-grid">
+
               <!-- 4. Azolla Beds -->
               <div class="solution-item-card featured-border" onclick="openQuoteModal('Azolla Beds')">
                 <div class="agri-img-holder">
@@ -1153,6 +1228,19 @@
                 </div>
               </div>
 
+                </div>
+              </div>
+            </div>
+
+            <!-- Show More / Less Action Button for Agricultural Solutions -->
+            <div class="show-more-action-wrap">
+              <button type="button" class="btn-show-more" id="btn-show-more-agri" aria-expanded="false" aria-controls="extra-agri" onclick="toggleShowMore('agri')">
+                <span class="btn-show-more-text" data-i18n="btn_show_more">વધુ પ્રોડક્ટ્સ જુઓ</span>
+                <span class="btn-show-more-count">(4)</span>
+                <svg class="btn-show-more-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
             </div>
               </div>
             </div>
