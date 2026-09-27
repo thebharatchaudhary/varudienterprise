@@ -2,6 +2,8 @@
 
 > **"Khedut Na Mape, Khedut Mate" | "By the farmer, for the farmers"**
 
+🌐 **Live Deployed Site**: [https://thebharatchaudhary.github.io/varudienterprise/](https://thebharatchaudhary.github.io/varudienterprise/)
+
 Varudi Enterprise is a premier manufacturer and supplier of agricultural protective covers, premium heavy-duty HDPE tarpaulins, pond liners, vermibeds, azolla beds, and custom vehicle covers.
 
 ---
